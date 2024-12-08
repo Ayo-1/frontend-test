@@ -36,6 +36,14 @@ function App() {
         options: {},
     });
 
+
+    const clearErrors = () => {
+        setErrors({
+            textInput: "",
+            dropdown: "",
+            options: {},
+        })
+    }
     const validateForm = (): boolean => {
         const newErrors: {
             textInput: string;
@@ -137,6 +145,7 @@ function App() {
 
         setFields([]);
         setCurrentFieldType(null);
+        clearErrors();
     }
     const openSpecificModal = (modalKey: string, type?: FormComponent) => {
         setModalState((prev) => {
@@ -163,6 +172,7 @@ function App() {
         }
         setFields([]);
         setCurrentFieldType(null);
+        clearErrors();
     };
     const closeSpecificModalOnly = (modalKey: string, type?: FormComponent) => {
         setModalState((prev) => ({ ...prev, [modalKey]: false }));
@@ -171,6 +181,7 @@ function App() {
         }
         setFields([]);
         setCurrentFieldType(null);
+        clearErrors();
     };
 
     const getTypeFromModal = (modal: string): FormComponent => {
